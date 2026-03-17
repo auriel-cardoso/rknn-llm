@@ -40,6 +40,7 @@
 - [x] [SmolVLM](https://huggingface.co/HuggingFaceTB)
 - [x] [RWKV7](https://huggingface.co/fla-hub)
 - [x] [DeepSeekOCR](https://huggingface.co/deepseek-ai/DeepSeek-OCR)
+- [~] [Qwen3.5](https://huggingface.co/Qwen) *(community adapter – approximated; see [qwen35_demo](rkllm-toolkit/examples/qwen35_demo/README.md))*
 
 # Quickstart
 
@@ -129,6 +130,7 @@ export BUILD_CUDA_EXT=0
 ```
 - On some platforms, you may encounter an error indicating that **libomp.so** cannot be found. To resolve this, locate the library in the corresponding cross-compilation toolchain and place it in the board's lib directory, at the same level as librkllmrt.so.
 - RWKV model conversion only supports Python 3.12. Please use `requirements_rwkv7.txt` to set up the pip environment.
+- Qwen3.5 (GatedDeltaNet hybrid architecture) is not natively supported by the toolkit. A community adapter is available in [`rkllm-toolkit/examples/qwen35_demo/`](rkllm-toolkit/examples/qwen35_demo/README.md). Use `requirements_qwen35.txt` to set up the pip environment. Note that DeltaNet layers are approximated as standard attention; full support requires a future rkllm-runtime kernel update.
 - Latest version: [ <u>v1.2.3](https://github.com/airockchip/rknn-llm/releases/tag/release-v1.2.3)</u>
 
 # RKNN Toolkit2
