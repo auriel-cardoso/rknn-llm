@@ -1,0 +1,22 @@
+{
+    "BLOCKNAME": "Qwen35HybridDecoderLayer",
+    "TOKEN_EMBD": "embed_tokens",
+    "ATTN_NORM": "input_layernorm",
+    "ATTN_Q": "mixer.q_proj",
+    "ATTN_K": "mixer.k_proj",
+    "ATTN_V": "mixer.v_proj",
+    "ATTN_QKV": "",
+    "ATTN_KV": "",
+    "KV_CONTINUOUS": "false",
+    "ATTN_OUT": "mixer.o_proj",
+    "ATTN_POST_NORM": "",
+    "FFN_NORM": "post_attention_layernorm",
+    "FFN_UP": "mlp.up_proj",
+    "FFN_GATE": "mlp.gate_proj",
+    "ACT_TYPE": "silu",
+    "FFN_DOWN": "mlp.down_proj",
+    "FFN_POST_NORM": "",
+    "OUTPUT_NORM": "norm",
+    "OUTPUT": "lm_head"
+}
+
