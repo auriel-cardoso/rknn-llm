@@ -1,4 +1,23 @@
 # CHANGELOG
+## Unreleased — Qwen3.5 (Qwen3-Next) research & workaround
+
+- Added `rkllm-toolkit/packages/requirements_qwen35.txt` with `transformers >= 4.57.0`
+  and `rwkv-fla` dependencies required by the Qwen3.5 (`qwen3_next`) architecture.
+- Added `rkllm-toolkit/examples/qwen35_hybrid_demo/` with:
+  - `README.md` — detailed explanation of the hybrid GatedDeltaNet + Transformer
+    architecture, why it fails in rkllm ≤ 1.2.3, and what native support needs.
+  - `modeling_qwen35.py` — custom PyTorch adapter that wraps Qwen3.5 for the
+    rkllm custom-model conversion path (linear_attention layers approximated as
+    causal self-attention until native qwen3_next support lands).
+  - `config_qwen35.json` — rkllm custom-model weight-name mapping.
+  - `export_rkllm_qwen35.py` — end-to-end conversion script with architecture
+    inspector (`--inspect`), dependency checks, and step-by-step logging.
+- Documented the three changes needed for full native support:
+  1. Add `qwen3_next` to recognised model types in the rkllm binary.
+  2. Add a hybrid layer dispatcher (per-layer `layer_types` routing).
+  3. Add a GatedDeltaNet NPU recurrent kernel (extension of the RWKV7 kernel).
+- Reference: airockchip/rknn-llm issues #471 and #472.
+
 ## v1.2.3
 
 - Added support for InternVL3.5, DeepSeekOCR, and Qwen3-VL models
